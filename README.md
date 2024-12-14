@@ -1,33 +1,26 @@
-# Export Logic Pro Overdub Takes with Reference Track
+# Export Logic Pro Overdubs with Reference Track
 
-This Python script processes Logic Pro project files to export overdubs into separate wav files. The script:
-1. Identifies the reference track in the Logic Pro project file.
-2. Splits other tracks into takes based on the reference track's length.
-3. Exports the takes with consistent naming.
+This script exports overdubbed takes from Logic Pro project files into clean `.wav` files. It:
+1. Detects the reference track.
+2. Splits overdubs into takes based on the reference track's length.
+3. Names exported files consistently.
+
+## Features
+
+- **Flexible Input**: Accepts individual `.logicx` files or folders containing `.logicx` files.
+- **Automatic Virtual Environment**: Sets up a temporary Python virtual environment to manage dependencies.
+- **Safe Cleanup**: Removes all temporary files after processing.
 
 ## Requirements
 
 - macOS
-- Python 3.7 or higher
-- [pydub](https://github.com/jiaaro/pydub) library: Install with `pip install pydub`
-- ffmpeg: Install via Homebrew with `brew install ffmpeg`
+- Python 3.7+ (installed via Homebrew or your package manager)
 
 ## Installation
 
-1. Clone this repository:
-    ```bash
-    git clone https://github.com/<your-username>/logic-takes-export.git
-    cd logic-takes-export
-    ```
-2. Install dependencies:
-    ```bash
-    pip install pydub
-    brew install ffmpeg
-    ```
+No manual installation is needed. The script automatically creates a temporary environment.
 
 ## Usage
 
-### Running the Script
-To process Logic Pro project files:
 ```bash
-python export_logic_takes.py <logic_project_1.logicx> [<logic_project_2.logicx> ...] <output_directory>
+./run-export-overdubs.sh [options] <output_directory> <logic_project_or_folder_1> [<logic_project_or_folder_2> ...]
